@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  authentication-db:
+    image: mysql:latest
+    container_name: authentication-db
+    volumes:
+      - authentication-volume:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - authentication-network
+    environment:
+      MYSQL_ROOT_PASSWORD: 'secret'
+      MYSQL_DATABASE: 'authentication'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'secret'
+  authentication-webserver:
+    image: nginx:1.22-alpine
+    container_name: authentication-webserver
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx:/etc/nginx/conf.d
+    ports:
+      - "8082:80"
+    networks:
+      - authentication-network
+    depends_on:
+      - authentication-php
+  authentication-php:
+    build:
+      context: .
+      dockerfile: docker/php8.2/Dockerfile
+    user: "1000:1000"
+    container_name: authentication-php
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - authentication-network
+    depends_on:
+      - authentication-db
+
+
+volumes:
+  authentication-volume:
+    driver: local
+networks:
+  authentication-network:
+    driver: bridge
