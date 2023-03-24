@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="https://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="https://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Authentication\Domain\Model\User\User" table="user">
+
+        <id name="id" column="id" type="uuid">
+            <generator strategy="CUSTOM"/>
+            <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
+        </id>
+
+
+        <field name="firstName" column="first_name" type="string" length="100" nullable="false" unique="false" />
+        <field name="lastName" column="last_name" type="string" length="100"  unique="false" />
+        <field name="email" column="email" type="string" nullable="false" unique="true" />
+
+    </entity>
+
+</doctrine-mapping>

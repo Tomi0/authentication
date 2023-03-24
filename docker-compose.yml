@@ -2,7 +2,7 @@ version: '3'
 
 services:
   authentication-db:
-    image: mysql:latest
+    image: mysql:8-debian
     container_name: authentication-db
     volumes:
       - authentication-volume:/var/lib/mysql
