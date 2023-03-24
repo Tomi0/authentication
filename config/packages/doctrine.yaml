@@ -14,9 +14,10 @@ doctrine:
         auto_mapping: true
         mappings:
             Authentication:
+                type: xml
                 is_bundle: false
                 dir: '%kernel.project_dir%/src/Authentication/Infrastructure/Doctrine/Persistence'
-                prefix: 'src\Authentication\nfrastructure\Doctrine\Persistence'
+                prefix: 'Authentication\Domain\Model'
                 alias: Authentication
 
 when@test:
