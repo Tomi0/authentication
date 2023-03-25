@@ -20,5 +20,7 @@ services:
     Authentication\:
         resource: '../src/Authentication/'
 
+    Authentication\Domain\Model\User\UserRepository: '@Authentication\Infrastructure\Doctrine\Domain\Model\User\UserDoctrineRepository'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
