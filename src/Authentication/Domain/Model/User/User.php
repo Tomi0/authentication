@@ -11,16 +11,18 @@ class User
     private string $firstName;
     private string $lastName;
     private string $email;
+    private string $password;
     private DateTime $createdAt;
     private DateTime $updatedAt;
 
-    public function __construct(string $id, string $firstName, string $lastName, string $email)
+    public function __construct(string $id, string $firstName, string $lastName, string $email, string $password)
     {
         $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->createdAt = $this->updatedAt = new DateTime();
+        $this->password = $password;
     }
 
 

@@ -21,6 +21,8 @@ services:
         resource: '../src/Authentication/'
 
     Authentication\Domain\Model\User\UserRepository: '@Authentication\Infrastructure\Doctrine\Domain\Model\User\UserDoctrineRepository'
+    Authentication\Infrastructure\Symfony\Domain\Service\User\HashPasswordSymfonySecurity: ~
+    Authentication\Domain\Service\User\HashPassword: '@Authentication\Infrastructure\Symfony\Domain\Service\User\HashPasswordSymfonySecurity'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

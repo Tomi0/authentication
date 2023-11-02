@@ -14,6 +14,7 @@
         <field name="firstName" column="first_name" type="string" length="100" nullable="false" unique="false" />
         <field name="lastName" column="last_name" type="string" length="100"  unique="false" />
         <field name="email" column="email" type="string" nullable="false" unique="true" />
+        <field name="password" column="password" type="string" length="255" nullable="false" unique="false" />
         <field name="createdAt" column="created_at" type="datetime" nullable="false" unique="false" />
         <field name="updatedAt" column="updated_at" type="datetime" nullable="false" unique="false" />
 
