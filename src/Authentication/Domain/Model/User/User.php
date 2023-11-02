@@ -7,20 +7,16 @@ use Ramsey\Uuid\UuidInterface;
 
 class User
 {
-    private UuidInterface $id;
+    private string $id;
     private string $firstName;
     private string $lastName;
     private string $email;
     private DateTime $createdAt;
     private DateTime $updatedAt;
 
-    /**
-     * @param string $firstName
-     * @param string $lastName
-     * @param string $email
-     */
-    public function __construct(string $firstName, string $lastName, string $email)
+    public function __construct(string $id, string $firstName, string $lastName, string $email)
     {
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
@@ -28,7 +24,7 @@ class User
     }
 
 
-    public function id(): UuidInterface
+    public function id(): string
     {
         return $this->id;
     }

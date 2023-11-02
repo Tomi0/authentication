@@ -15,6 +15,7 @@ class RegisterUser
     public function handle(RegisterUserRequest $createUserRequest): void
     {
         $user = new User(
+            $this->userRepository->nextId(),
             $createUserRequest->firstName,
             $createUserRequest->lastName,
             $createUserRequest->email
