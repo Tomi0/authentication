@@ -1,4 +1,4 @@
 register-user:
   path: /register-user
   controller: App\Ui\Rest\RegisterUserController
-  methods: GET|HEAD
+  methods: POST|HEAD

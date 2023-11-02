@@ -15,6 +15,18 @@ services:
       MYSQL_DATABASE: 'authentication'
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'secret'
+  authentication-db-test:
+    image: mysql:8-debian
+    container_name: authentication-db-test
+    ports:
+      - "3307:3306"
+    networks:
+      - authentication-network
+    environment:
+      MYSQL_ROOT_PASSWORD: 'secret'
+      MYSQL_DATABASE: 'authentication_test'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'secret'
   authentication-webserver:
     image: nginx:1.22-alpine
     container_name: authentication-webserver
