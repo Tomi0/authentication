@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\DependencyInjection\Container;

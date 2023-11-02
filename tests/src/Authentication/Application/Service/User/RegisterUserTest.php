@@ -2,8 +2,8 @@
 
 namespace Tests\src\Authentication\Application\Service\User;
 
-use App\Tests\TestCase;
 use Authentication\Application\Service\User\RegisterUser;
+use Tests\TestCase;
 
 class RegisterUserTest extends TestCase
 {
